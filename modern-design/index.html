@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOMMY — Independent Global Journalism & Investigations</title>
+  <meta name="description" content="DOMMY is a global digital newsroom providing daily verified reporting on international diplomacy, economic policy, technology infrastructure, and investigative journalism." />
+  <meta name="author" content="DOMMY Editorial Board" />
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DOMMY — Independent Global Journalism" />
+  <meta property="og:description" content="Verified reporting, foreign correspondence, and investigative series." />
+
+  <!-- Typography: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            },
+            darkNavy: '#0a0e17',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Smooth Transitions & Card Aesthetics */
+    .news-card {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .news-card:hover {
+      transform: translateY(-3px);
+    }
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.15); }
+    }
+    .live-indicator {
+      animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- ==========================================
+       1. TOP UTILITY BAR (Live Wire & Markets)
+       ========================================== -->
+  <div class="bg-darkNavy text-slate-300 text-xs border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- Breaking News Snippet -->
+      <div class="flex items-center gap-3 overflow-hidden">
+        <span class="inline-flex items-center gap-1.5 bg-red-500/10 text-red-400 border border-red-500/20 px-2.5 py-0.5 rounded-full font-semibold text-[11px] uppercase tracking-wider shrink-0">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-500 live-indicator"></span> Breaking
+        </span>
+        <a href="details.html" class="text-slate-200 hover:text-blue-400 transition-colors truncate font-medium">
+          Geneva Summit: Delegations agree to maritime escort framework to safeguard commercial shipping lanes
+        </a>
+      </div>
+
+      <!-- Markets & Date -->
+      <div class="hidden md:flex items-center gap-5 text-slate-400 text-[11px] shrink-0 font-medium">
+        <span id="currentDate">Monday, September 07, 2026</span>
+        <span class="text-slate-700">•</span>
+        <span class="text-emerald-400 font-semibold">S&P 500 ▲ +0.7%</span>
+        <span class="text-slate-700">•</span>
+        <span class="text-slate-300">Brent Crude $84.20</span>
+        <span class="text-slate-700">•</span>
+        <a href="category.html" class="text-slate-300 hover:text-white transition-colors">Digital Edition</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================
+       2. PRIMARY NAVIGATION HEADER
+       ========================================== -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20 gap-4">
+        
+        <!-- Logo & Navigation -->
+        <div class="flex items-center gap-8">
+          <a href="index.html" class="flex items-center gap-2 group" aria-label="DOMMY Home">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-600 flex items-center justify-center text-white font-display font-black text-xl shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
+              D
+            </div>
+            <div class="flex flex-col">
+              <span class="text-2xl md:text-3xl font-display font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+                DOMMY<span class="text-blue-600">.</span>
+              </span>
+            </div>
+          </a>
+
+          <!-- Pill-Style Nav Menu -->
+          <nav class="hidden lg:flex items-center gap-1 bg-slate-100/90 p-1 rounded-full border border-slate-200/70 text-xs font-semibold text-slate-700" aria-label="Main Navigation">
+            <a href="index.html" class="bg-white text-blue-600 px-4 py-1.5 rounded-full shadow-xs">Home</a>
+            <a href="category.html" class="hover:text-slate-900 hover:bg-white/70 px-4 py-1.5 rounded-full transition-all">World</a>
+            <a href="category.html" class="hover:text-slate-900 hover:bg-white/70 px-4 py-1.5 rounded-full transition-all">Conflict & Defense</a>
+            <a href="category.html" class="hover:text-slate-900 hover:bg-white/70 px-4 py-1.5 rounded-full transition-all">Technology & AI</a>
+            <a href="category.html" class="hover:text-slate-900 hover:bg-white/70 px-4 py-1.5 rounded-full transition-all">Investigations</a>
+            <a href="category.html" class="hover:text-slate-900 hover:bg-white/70 px-4 py-1.5 rounded-full transition-all">Global Markets</a>
+            <a href="category.html" class="hover:text-slate-900 hover:bg-white/70 px-4 py-1.5 rounded-full transition-all">Opinion</a>
+          </nav>
+        </div>
+
+        <!-- Search & Action Buttons -->
+        <div class="flex items-center gap-3">
+          <div class="relative hidden sm:block">
+            <input
+              type="search"
+              placeholder="Search stories, bureaus..."
+              class="w-48 md:w-60 pl-9 pr-4 py-2 bg-slate-100 hover:bg-slate-100/90 focus:bg-white text-xs rounded-full border border-transparent focus:border-blue-500 focus:outline-none transition-all"
+            />
+            <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+
+          <a href="#newsletter" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-md shadow-blue-600/20 transition-all">
+            Subscribe Free
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       3. MAIN CONTENT: HERO BENTO GRID
+       ========================================== -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+    <!-- Bento News Grid -->
+    <section aria-labelledby="top-stories-heading" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <h2 id="top-stories-heading" class="sr-only">Top Stories</h2>
+      
+      <!-- Bento Main Lead Card (8 Columns) -->
+      <article class="lg:col-span-8 news-card relative rounded-3xl overflow-hidden shadow-lg bg-slate-900 group min-h-[460px] md:min-h-[540px] flex flex-col justify-end">
+        <img
+          src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&q=80&w=1400"
+          alt="Delegates at the Geneva Diplomatic Conference"
+          class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700 ease-out"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-darkNavy via-darkNavy/50 to-transparent"></div>
+
+        <div class="relative z-10 p-6 sm:p-10 space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="bg-blue-600 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+              Diplomatic Exclusive
+            </span>
+            <span class="text-slate-300 text-xs flex items-center gap-1 font-medium">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              6 min read
+            </span>
+          </div>
+
+          <a href="details.html" class="block group-hover:text-blue-300 transition-colors">
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-display font-black text-white leading-tight tracking-tight">
+              High-Stakes Diplomatic Talks in Geneva Yield Preliminary Framework on Red Sea Transit Security
+            </h1>
+          </a>
+
+          <p class="text-slate-300 text-sm md:text-base line-clamp-2 max-w-2xl font-normal leading-relaxed">
+            GENEVA — Following a 12-hour marathon negotiating session, international mediators and regional envoys reached consensus on independent monitoring buoys and coordinated naval escort hotlines.
+          </p>
+
+          <div class="flex items-center gap-4 pt-2 border-t border-slate-700/60">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=150" class="w-9 h-9 rounded-full object-cover ring-2 ring-blue-500" alt="Diana Reeves" />
+            <div class="text-xs">
+              <p class="font-bold text-white">Diana Reeves</p>
+              <p class="text-slate-400">Chief Diplomatic Correspondent, Geneva Bureau</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bento Right Column: 2 Featured Tiles (4 Columns) -->
+      <div class="lg:col-span-4 flex flex-col gap-6">
+        
+        <!-- Tile 1: Technology Investigation -->
+        <article class="news-card flex-1 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-indigo-50 text-indigo-700 border border-indigo-200/60 text-[11px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wide">
+                Technology Investigation
+              </span>
+              <span class="text-slate-400 text-xs font-medium">45m ago</span>
+            </div>
+            <a href="details.html" class="block">
+              <h2 class="text-lg md:text-xl font-display font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-2">
+                Emergency Patches Deployed After Automated Attack Targets Open-Source Repositories
+              </h2>
+            </a>
+            <p class="text-slate-500 text-xs line-clamp-3 leading-relaxed">
+              Software security consortiums mobilized over the weekend to neutralize automated scripts attempting to inject unauthorized dependencies into public build registries.
+            </p>
+          </div>
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-4 text-xs font-semibold text-slate-600">
+            <span>By Claire Donovan</span>
+            <a href="details.html" class="text-blue-600 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 font-bold">
+              Read Story →
+            </a>
+          </div>
+        </article>
+
+        <!-- Tile 2: Maritime & Defense -->
+        <article class="news-card flex-1 bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-amber-50 text-amber-800 border border-amber-200/60 text-[11px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wide">
+                Maritime Security
+              </span>
+              <span class="text-slate-400 text-xs font-medium">2h ago</span>
+            </div>
+            <a href="details.html" class="block">
+              <h2 class="text-lg md:text-xl font-display font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-2">
+                Naval Escort Flotilla Intercepts Four Uncrewed Drone Vessels in High-Risk Corridor
+              </h2>
+            </a>
+            <p class="text-slate-500 text-xs line-clamp-3 leading-relaxed">
+              Coordinated electronic countermeasures safely disabled the autonomous craft before they could disrupt scheduled merchant tanker convoys.
+            </p>
+          </div>
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100 mt-4 text-xs font-semibold text-slate-600">
+            <span>By James Calloway</span>
+            <a href="details.html" class="text-blue-600 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1 font-bold">
+              Read Story →
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+       4. RAPID SCANNABLE NEWS BRIEFS (Axios Style)
+       ========================================== -->
+    <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs" aria-labelledby="briefings-heading">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+        <div>
+          <h2 id="briefings-heading" class="text-xl font-display font-bold text-slate-900">Today’s Key Briefings</h2>
+          <p class="text-xs text-slate-500 font-medium">Verified field reports curated by our news desk</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mr-1">Topics:</span>
+          <a href="category.html" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium px-3 py-1 rounded-full transition-colors">#GenevaSummit</a>
+          <a href="category.html" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium px-3 py-1 rounded-full transition-colors">#GlobalTrade</a>
+          <a href="category.html" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium px-3 py-1 rounded-full transition-colors">#CyberDefense</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
+        <!-- Story 1 -->
+        <a href="details.html" class="group space-y-2.5">
+          <span class="text-[11px] font-bold uppercase text-blue-600 tracking-wider">Economy & Trade</span>
+          <h3 class="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+            Nine Emerging Economies Sign Multi-Billion Dollar Local Currency Settlement Accords
+          </h3>
+          <p class="text-xs text-slate-500 font-medium">Finance ministers finalize framework to ease transaction friction in raw materials commerce.</p>
+        </a>
+
+        <!-- Story 2 -->
+        <a href="details.html" class="group space-y-2.5">
+          <span class="text-[11px] font-bold uppercase text-blue-600 tracking-wider">Healthcare Oversight</span>
+          <h3 class="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+            Parliamentary Panel Subpoenas Pharmaceutical Research Memos in Clinical Trial Probe
+          </h3>
+          <p class="text-xs text-slate-500 font-medium">Investigative findings examine regulatory compliance in overseas trials.</p>
+        </a>
+
+        <!-- Story 3 -->
+        <a href="details.html" class="group space-y-2.5">
+          <span class="text-[11px] font-bold uppercase text-blue-600 tracking-wider">Enterprise Tech</span>
+          <h3 class="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+            Tech Companies Tighten Helpdesk Security Following Social Engineering Wave
+          </h3>
+          <p class="text-xs text-slate-500 font-medium">Dual-custody verification protocols deployed across cloud infrastructure support desks.</p>
+        </a>
+
+        <!-- Story 4 -->
+        <a href="details.html" class="group space-y-2.5">
+          <span class="text-[11px] font-bold uppercase text-blue-600 tracking-wider">Financial Forensics</span>
+          <h3 class="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+            Financial Investigators Trace $4.2B Transnational Cryptocurrency Mixing Ecosystem
+          </h3>
+          <p class="text-xs text-slate-500 font-medium">How cross-chain bridges are utilized in complex multi-jurisdictional transfers.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- ==========================================
+       5. IN-DEPTH INVESTIGATIVE SERIES
+       ========================================== -->
+    <section class="space-y-6" aria-labelledby="investigations-heading">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 id="investigations-heading" class="text-2xl font-display font-black text-slate-900">Featured Investigations</h2>
+          <p class="text-xs text-slate-500 font-medium">Multi-part reporting from our specialized investigative desks</p>
+        </div>
+        <a href="category.html" class="text-xs font-bold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1">
+          All Investigations →
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1 -->
+        <article class="news-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs flex flex-col group">
+          <div class="relative h-48 overflow-hidden bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Financial district buildings" />
+            <span class="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+              Global Finance
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <p class="text-slate-400 text-xs font-medium mb-1">July 22, 2026 · 8 min read</p>
+              <a href="details.html">
+                <h3 class="text-base font-bold font-display text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-2">
+                  How Alternative Clearinghouses Are Reshaping Cross-Border Energy Settlement
+                </h3>
+              </a>
+              <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">
+                An examination of bilateral central bank agreements designed to facilitate direct currency settlements for raw commodity shipments.
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+              <span class="font-semibold text-slate-700">Diana Reeves</span>
+              <a href="details.html" class="text-blue-600 font-bold">Read Series →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="news-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs flex flex-col group">
+          <div class="relative h-48 overflow-hidden bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Laboratory testing" />
+            <span class="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+              Healthcare Oversight
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <p class="text-slate-400 text-xs font-medium mb-1">August 05, 2026 · 10 min read</p>
+              <a href="details.html">
+                <h3 class="text-base font-bold font-display text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-2">
+                  Internal Memos Reveal Gaps in Consent Protocols for Global Clinical Programs
+                </h3>
+              </a>
+              <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">
+                Subpoenaed documents uncover how biotechnology firms outsourced regulatory oversight across remote clinic networks.
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+              <span class="font-semibold text-slate-700">Marcus Vance</span>
+              <a href="details.html" class="text-blue-600 font-bold">Read Series →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="news-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs flex flex-col group">
+          <div class="relative h-48 overflow-hidden bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Server room infrastructure" />
+            <span class="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+              Cyber Defense
+            </span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <p class="text-slate-400 text-xs font-medium mb-1">July 18, 2026 · 7 min read</p>
+              <a href="details.html">
+                <h3 class="text-base font-bold font-display text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-2">
+                  Hospital Network Recovers Following Coordinated Medical Device Outage
+                </h3>
+              </a>
+              <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">
+                How emergency contingency plans and isolated offline telemetry kept surgical suites operational during an extortion attempt.
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+              <span class="font-semibold text-slate-700">Claire Donovan</span>
+              <a href="details.html" class="text-blue-600 font-bold">Read Series →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+       6. OPINION & COLUMNIST PERSPECTIVES
+       ========================================== -->
+    <section class="bg-gradient-to-br from-slate-900 via-darkNavy to-slate-950 text-white rounded-3xl p-8 sm:p-10 shadow-xl" aria-labelledby="opinion-heading">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-slate-800">
+        <div>
+          <span class="text-blue-400 text-xs font-bold uppercase tracking-widest block mb-1">Perspectives</span>
+          <h2 id="opinion-heading" class="text-2xl font-display font-bold">Opinion & Strategic Commentary</h2>
+        </div>
+        <p class="text-xs text-slate-400 font-medium max-w-sm">Rigorous analysis and global perspectives from our senior columnists</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
+        
+        <!-- Column 1 -->
+        <a href="details.html" class="group space-y-3">
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=150" class="w-11 h-11 rounded-full object-cover ring-2 ring-blue-500" alt="Diana Reeves portrait" />
+            <div>
+              <p class="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Diana Reeves</p>
+              <p class="text-xs text-slate-400">Foreign Policy Columnist</p>
+            </div>
+          </div>
+          <h3 class="text-base font-display font-bold text-slate-200 group-hover:text-white transition-colors leading-snug">
+            “Why Multilateral Ceasefire Frameworks Require Continuous On-Site Verification”
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Without independent monitoring teams on the ground, fragile peace pacts remain vulnerable to miscalculation and sudden escalations.
+          </p>
+        </a>
+
+        <!-- Column 2 -->
+        <a href="details.html" class="group space-y-3">
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150" class="w-11 h-11 rounded-full object-cover ring-2 ring-blue-500" alt="James Calloway portrait" />
+            <div>
+              <p class="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">James Calloway</p>
+              <p class="text-xs text-slate-400">Maritime Security Analyst</p>
+            </div>
+          </div>
+          <h3 class="text-base font-display font-bold text-slate-200 group-hover:text-white transition-colors leading-snug">
+            “The Rapid Transformation of Coastal Escort Protocols in High-Risk Corridors”
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            How naval task forces are adopting synchronized electronic defense systems to protect international merchant vessels.
+          </p>
+        </a>
+
+        <!-- Column 3 -->
+        <a href="details.html" class="group space-y-3">
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=150" class="w-11 h-11 rounded-full object-cover ring-2 ring-blue-500" alt="Claire Donovan portrait" />
+            <div>
+              <p class="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Claire Donovan</p>
+              <p class="text-xs text-slate-400">Technology Policy</p>
+            </div>
+          </div>
+          <h3 class="text-base font-display font-bold text-slate-200 group-hover:text-white transition-colors leading-snug">
+            “Protecting Open-Source Digital Infrastructure from Automated Vulnerability Probes”
+          </h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Why developer consortiums must mandate cryptographic signature verification across public package managers.
+          </p>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+       7. NEWSLETTER SUBSCRIPTION COMPONENT
+       ========================================== -->
+    <section id="newsletter" class="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white rounded-3xl p-8 sm:p-12 shadow-lg flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="max-w-xl space-y-2">
+        <span class="bg-white/20 text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+          The Dommy Daily Brief
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-display font-black leading-tight">
+          Stay Informed With Daily Global Reporting
+        </h2>
+        <p class="text-blue-100 text-xs sm:text-sm leading-relaxed">
+          Get verified investigative reporting, diplomatic updates, and technology analysis delivered to your inbox every morning. Free, no spam.
+        </p>
+      </div>
+
+      <div class="w-full md:w-auto">
+        <form class="flex flex-col sm:flex-row gap-2.5 max-w-md w-full" onsubmit="event.preventDefault(); alert('Thank you for subscribing to DOMMY Daily!');">
+          <input
+            type="email"
+            placeholder="Enter your email address..."
+            required
+            class="px-5 py-3 rounded-full bg-white text-slate-900 placeholder-slate-400 text-xs focus:outline-none focus:ring-2 focus:ring-white shadow-xs w-full sm:w-72"
+          />
+          <button
+            type="submit"
+            class="bg-darkNavy hover:bg-slate-900 text-white text-xs font-bold px-6 py-3 rounded-full uppercase tracking-wider transition-all shadow-md shrink-0 cursor-pointer"
+          >
+            Subscribe Free
+          </button>
+        </form>
+        <p class="text-[11px] text-blue-200 mt-2 text-center sm:text-left">Join over 120,000 subscribers worldwide.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       8. COMPREHENSIVE FOOTER
+       ========================================== -->
+  <footer class="bg-white border-t border-slate-200/80 pt-16 pb-12 mt-16 text-slate-600 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+        
+        <!-- Brand & Mission -->
+        <div class="md:col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-display font-black text-lg">
+              D
+            </div>
+            <span class="text-2xl font-display font-black text-slate-900">
+              DOMMY<span class="text-blue-600">.</span>
+            </span>
+          </a>
+          <p class="text-slate-500 leading-relaxed max-w-sm">
+            DOMMY is an independent digital news organization dedicated to verified field reporting, foreign correspondence, and investigative accountability.
+          </p>
+          <div class="flex items-center gap-4 text-slate-400">
+            <a href="#" class="hover:text-blue-600 transition-colors">Twitter / X</a>
+            <span>•</span>
+            <a href="#" class="hover:text-blue-600 transition-colors">LinkedIn</a>
+            <span>•</span>
+            <a href="#" class="hover:text-blue-600 transition-colors">Instagram</a>
+            <span>•</span>
+            <a href="#" class="hover:text-blue-600 transition-colors">YouTube</a>
+          </div>
+        </div>
+
+        <!-- News Desks -->
+        <div class="space-y-3">
+          <h3 class="font-bold font-display text-slate-900 text-sm">News Desks</h3>
+          <ul class="space-y-2 text-slate-500">
+            <li><a href="category.html" class="hover:text-blue-600">World Affairs</a></li>
+            <li><a href="category.html" class="hover:text-blue-600">Conflict & Defense</a></li>
+            <li><a href="category.html" class="hover:text-blue-600">Technology & AI</a></li>
+            <li><a href="category.html" class="hover:text-blue-600">Special Investigations</a></li>
+            <li><a href="category.html" class="hover:text-blue-600">Global Markets</a></li>
+            <li><a href="category.html" class="hover:text-blue-600">Opinion & Columns</a></li>
+          </ul>
+        </div>
+
+        <!-- Editorial Standards -->
+        <div class="space-y-3">
+          <h3 class="font-bold font-display text-slate-900 text-sm">Editorial Standards</h3>
+          <ul class="space-y-2 text-slate-500">
+            <li><a href="#" class="hover:text-blue-600">Code of Ethics</a></li>
+            <li><a href="#" class="hover:text-blue-600">Fact-Checking Policy</a></li>
+            <li><a href="#" class="hover:text-blue-600">Corrections Archive</a></li>
+            <li><a href="#" class="hover:text-blue-600">Right of Reply</a></li>
+            <li><a href="#" class="hover:text-blue-600">Newsroom Directory</a></li>
+          </ul>
+        </div>
+
+        <!-- Company & Contact -->
+        <div class="space-y-3">
+          <h3 class="font-bold font-display text-slate-900 text-sm">Company</h3>
+          <ul class="space-y-2 text-slate-500">
+            <li><a href="#" class="hover:text-blue-600">About DOMMY</a></li>
+            <li><a href="#" class="hover:text-blue-600">Newsroom Bureaus</a></li>
+            <li><a href="#" class="hover:text-blue-600">Press Inquiries</a></li>
+            <li><a href="#" class="hover:text-blue-600">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-blue-600">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-xs">
+        <p>© 2026 DOMMY Digital Media Inc. All rights reserved.</p>
+        <p>Published from Geneva, London, Washington D.C., and Singapore.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

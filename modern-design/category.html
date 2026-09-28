@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technology & Cybersecurity News — DOMMY</title>
+  <meta name="description" content="In-depth coverage of global enterprise technology, software security, artificial intelligence policy, and digital infrastructure from DOMMY correspondents." />
+  <meta name="author" content="DOMMY Technology Desk" />
+
+  <!-- Typography: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            },
+            darkNavy: '#0a0e17',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .news-card {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .news-card:hover {
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col antialiased selection:bg-blue-600 selection:text-white">
+
+  <!-- ==========================================
+       1. TOP BAR
+       ========================================== -->
+  <div class="bg-darkNavy text-slate-300 text-xs border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="bg-blue-600/20 text-blue-400 border border-blue-500/30 px-2.5 py-0.5 rounded-full font-semibold text-[11px] uppercase tracking-wider">
+          Section
+        </span>
+        <span class="text-slate-300 font-medium">Technology, Cybersecurity & Digital Infrastructure</span>
+      </div>
+      <a href="index.html" class="text-slate-400 hover:text-white transition-colors text-xs font-medium">
+        ← Return to Main Homepage
+      </a>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       2. NAVIGATION BAR
+       ========================================== -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20 gap-4">
+        
+        <div class="flex items-center gap-8">
+          <a href="index.html" class="flex items-center gap-2 group" aria-label="DOMMY Home">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 via-blue-600 to-indigo-600 flex items-center justify-center text-white font-display font-black text-xl shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform">
+              D
+            </div>
+            <span class="text-2xl md:text-3xl font-display font-black tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+              DOMMY<span class="text-blue-600">.</span>
+            </span>
+          </a>
+
+          <nav class="hidden lg:flex items-center gap-1 bg-slate-100/90 p-1 rounded-full border border-slate-200/70 text-xs font-semibold text-slate-700">
+            <a href="index.html" class="hover:text-slate-900 hover:bg-white/70 px-4 py-1.5 rounded-full transition-all">Home</a>
+            <a href="category.html" class="hover:text-slate-900 hover:bg-white/70 px-4 py-1.5 rounded-full transition-all">World</a>
+            <a href="category.html" class="hover:text-slate-900 hover:bg-white/70 px-4 py-1.5 rounded-full transition-all">Conflict & Defense</a>
+            <a href="category.html" class="bg-white text-blue-600 px-4 py-1.5 rounded-full shadow-xs">Technology & AI</a>
+            <a href="category.html" class="hover:text-slate-900 hover:bg-white/70 px-4 py-1.5 rounded-full transition-all">Investigations</a>
+            <a href="category.html" class="hover:text-slate-900 hover:bg-white/70 px-4 py-1.5 rounded-full transition-all">Markets</a>
+          </nav>
+        </div>
+
+        <a href="#newsletter" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-md shadow-blue-600/20 transition-all">
+          Subscribe Free
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       3. CATEGORY HERO BANNER
+       ========================================== -->
+  <div class="bg-gradient-to-br from-slate-900 via-darkNavy to-slate-950 text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto space-y-4">
+      <nav class="flex items-center gap-2 text-xs font-medium text-slate-400">
+        <a href="index.html" class="hover:text-white">Home</a>
+        <span>›</span>
+        <span class="text-blue-400 font-semibold">Technology & Digital Policy</span>
+      </nav>
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <h1 class="text-3xl sm:text-5xl font-display font-black text-white tracking-tight">
+            Technology & Cybersecurity
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base max-w-2xl mt-2 font-normal leading-relaxed">
+            In-depth reporting on enterprise security incidents, software supply chains, artificial intelligence governance, and global digital infrastructure.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3 shrink-0">
+          <div class="bg-slate-800/80 border border-slate-700 px-4 py-2 rounded-2xl text-xs text-slate-300">
+            <span class="text-white font-bold text-base block font-display">128</span>
+            <span>Articles Published</span>
+          </div>
+          <div class="bg-slate-800/80 border border-slate-700 px-4 py-2 rounded-2xl text-xs text-slate-300">
+            <span class="text-emerald-400 font-bold text-base block font-display">Live</span>
+            <span>Bureau Updates</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       4. FILTER PILLS & MAIN FEED
+       ========================================== -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+    
+    <!-- Topic Filter Chips -->
+    <div class="flex flex-wrap items-center gap-2 pb-4 border-b border-slate-200">
+      <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mr-2">Filter Topics:</span>
+      <button class="bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full shadow-xs">All Dispatches</button>
+      <button class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 text-xs font-medium px-4 py-2 rounded-full transition-colors">Data Breaches</button>
+      <button class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 text-xs font-medium px-4 py-2 rounded-full transition-colors">Software Security</button>
+      <button class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 text-xs font-medium px-4 py-2 rounded-full transition-colors">Artificial Intelligence</button>
+      <button class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 text-xs font-medium px-4 py-2 rounded-full transition-colors">Infrastructure</button>
+      <button class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 text-xs font-medium px-4 py-2 rounded-full transition-colors">Digital Privacy</button>
+    </div>
+
+    <!-- Category Lead Story Card -->
+    <article class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-md group">
+      <div class="flex flex-col lg:flex-row">
+        <div class="w-full lg:w-3/5 h-72 sm:h-96 relative overflow-hidden bg-slate-900">
+          <img
+            src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1000"
+            alt="Cyber Security Operations Center"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+          />
+          <span class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full">
+            Lead Investigation
+          </span>
+        </div>
+        <div class="w-full lg:w-2/5 p-6 sm:p-10 flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center gap-2 text-slate-400 text-xs font-medium">
+              <span>August 18, 2026</span>
+              <span>•</span>
+              <span>6 min read</span>
+            </div>
+            <a href="details.html">
+              <h2 class="text-xl sm:text-2xl font-display font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-tight">
+                Emergency Patches Deployed After Automated Attack Targets Open-Source Repositories
+              </h2>
+            </a>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-3">
+              SAN FRANCISCO — Software security consortiums mobilized over the weekend to neutralize automated scripts attempting to inject unauthorized dependencies into public developer registries.
+            </p>
+          </div>
+          <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+            <span class="font-semibold text-slate-700">By Claire Donovan</span>
+            <a href="details.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-full transition-all">
+              Read Story →
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Main Grid (8 cols articles, 4 cols sidebar) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- 8 Columns: Articles Feed -->
+      <div class="lg:col-span-8 space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          
+          <!-- Article 1 -->
+          <article class="news-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs flex flex-col group">
+            <div class="relative h-48 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Hospital interior" />
+              <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                Healthcare
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <p class="text-slate-400 text-xs font-medium mb-1">July 18, 2026 · 4 min read</p>
+                <a href="details.html"><h3 class="text-base font-display font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-2">Hospital Network Restores Systems Following Ransomware Incident</h3></a>
+                <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">Emergency offline procedures enabled surgical teams to continue treatments while IT units remediated telemetry server outages.</p>
+              </div>
+              <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+                <span class="font-semibold text-slate-700">Claire Donovan</span>
+                <a href="details.html" class="text-blue-600 font-bold">Read Full →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="news-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs flex flex-col group">
+            <div class="relative h-48 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Security operations" />
+              <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                Corporate Security
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <p class="text-slate-400 text-xs font-medium mb-1">June 29, 2026 · 6 min read</p>
+                <a href="details.html"><h3 class="text-base font-display font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-2">Tech Companies Combat Social Engineering Schemes Targeting Helpdesks</h3></a>
+                <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">Security administrators introduce hardware token verification after criminal groups attempted to solicit unauthorized credential resets.</p>
+              </div>
+              <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+                <span class="font-semibold text-slate-700">Claire Donovan</span>
+                <a href="details.html" class="text-blue-600 font-bold">Read Full →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="news-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs flex flex-col group">
+            <div class="relative h-48 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Binary data monitor" />
+              <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                Data Leak
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <p class="text-slate-400 text-xs font-medium mb-1">July 28, 2026 · 5 min read</p>
+                <a href="details.html"><h3 class="text-base font-display font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-2">Cyber Forum Database Leak Exposes 320,000 User Records Online</h3></a>
+                <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">A leaked archive reveals communication threads, server access logs, and registration details from an underground messaging board.</p>
+              </div>
+              <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+                <span class="font-semibold text-slate-700">Tech Desk</span>
+                <a href="details.html" class="text-blue-600 font-bold">Read Full →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 4 -->
+          <article class="news-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs flex flex-col group">
+            <div class="relative h-48 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Crypto network graph" />
+              <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full">
+                Financial Crime
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <p class="text-slate-400 text-xs font-medium mb-1">June 14, 2026 · 8 min read</p>
+                <a href="details.html"><h3 class="text-base font-display font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug mb-2">How Investigators Traced a $4.2B Cryptocurrency Mixing Network</h3></a>
+                <p class="text-slate-600 text-xs leading-relaxed line-clamp-3">Financial analysts have mapped the complex international web of digital asset mixing services used to evade global banking regulations.</p>
+              </div>
+              <div class="flex items-center justify-between pt-4 border-t border-slate-100 text-xs">
+                <span class="font-semibold text-slate-700">Marcus Vance</span>
+                <a href="details.html" class="text-blue-600 font-bold">Read Full →</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Modern Pagination Bar -->
+        <div class="flex items-center justify-between pt-6 border-t border-slate-200">
+          <button disabled class="bg-slate-100 text-slate-400 px-5 py-2.5 rounded-full text-xs font-bold cursor-not-allowed">
+            ← Previous
+          </button>
+          <div class="flex items-center gap-1.5 text-xs font-bold">
+            <span class="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center">1</span>
+            <a href="#" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-200 text-slate-700 transition-colors">2</a>
+            <a href="#" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-200 text-slate-700 transition-colors">3</a>
+            <span class="text-slate-400 px-1">...</span>
+            <a href="#" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-slate-200 text-slate-700 transition-colors">8</a>
+          </div>
+          <a href="#" class="bg-white hover:bg-slate-100 border border-slate-200 text-slate-900 px-5 py-2.5 rounded-full text-xs font-bold transition-colors">
+            Next →
+          </a>
+        </div>
+      </div>
+
+      <!-- 4 Columns: Modern Sidebar -->
+      <div class="lg:col-span-4 space-y-6">
+        
+        <!-- Section Correspondent Spotlight -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs space-y-4">
+          <div class="flex items-center gap-4">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=150" class="w-14 h-14 rounded-2xl object-cover ring-2 ring-blue-500" alt="Claire Donovan portrait" />
+            <div>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 block">Lead Reporter</span>
+              <h4 class="text-base font-bold font-display text-slate-900">Claire Donovan</h4>
+              <p class="text-xs text-slate-500">San Francisco Bureau</p>
+            </div>
+          </div>
+          <p class="text-slate-600 text-xs leading-relaxed">
+            Claire covers software vulnerabilities, data protection policies, enterprise infrastructure, and emerging artificial intelligence security standards.
+          </p>
+          <a href="#" class="text-blue-600 font-bold text-xs inline-flex items-center gap-1 hover:underline">
+            View all stories by Claire →
+          </a>
+        </div>
+
+        <!-- Trending in Tech -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs space-y-4">
+          <h4 class="text-base font-display font-bold text-slate-900">Trending in Technology</h4>
+          <div class="space-y-4 divide-y divide-slate-100">
+            <a href="details.html" class="pt-3 first:pt-0 flex items-start gap-3 group">
+              <span class="text-xl font-display font-black text-slate-300 group-hover:text-blue-600 transition-colors">01</span>
+              <div>
+                <h5 class="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">Global Open-Source Repositories Audit Completed</h5>
+                <p class="text-[10px] text-slate-400 mt-0.5">18K Reads</p>
+              </div>
+            </a>
+            <a href="details.html" class="pt-3 flex items-start gap-3 group">
+              <span class="text-xl font-display font-black text-slate-300 group-hover:text-blue-600 transition-colors">02</span>
+              <div>
+                <h5 class="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">New Standards Proposed for Cloud Access Keys</h5>
+                <p class="text-[10px] text-slate-400 mt-0.5">14K Reads</p>
+              </div>
+            </a>
+            <a href="details.html" class="pt-3 flex items-start gap-3 group">
+              <span class="text-xl font-display font-black text-slate-300 group-hover:text-blue-600 transition-colors">03</span>
+              <div>
+                <h5 class="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">European Directives on Corporate Encryption Rules</h5>
+                <p class="text-[10px] text-slate-400 mt-0.5">9.2K Reads</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sidebar Newsletter Card -->
+        <div class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white rounded-3xl p-6 shadow-md space-y-3">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-blue-200 block">Weekly Digest</span>
+          <h4 class="text-base font-display font-bold">The Tech & Security Brief</h4>
+          <p class="text-blue-100 text-xs leading-relaxed">A curated overview of enterprise technology news and investigations delivered every Friday.</p>
+          <input type="email" placeholder="Your work email..." class="w-full px-4 py-2.5 rounded-full bg-white text-slate-900 text-xs focus:outline-none placeholder-slate-400" />
+          <button class="w-full bg-darkNavy hover:bg-slate-900 text-white text-xs font-bold py-2.5 rounded-full transition-all cursor-pointer">Subscribe</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================
+       5. FOOTER
+       ========================================== -->
+  <footer class="bg-white border-t border-slate-200/80 pt-12 pb-8 mt-16 text-center text-xs text-slate-400">
+    <p>© 2026 DOMMY Digital Media Inc. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

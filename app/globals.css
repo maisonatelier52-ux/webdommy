@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #111827;
+    --paper-tint: #fbfbfb;
+    --news-red: #ba0c2f;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-serif-headline {
+    font-family: var(--font-serif), Georgia, Cambria, "Times New Roman", Times, serif;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Authentic Broadsheet Drop-Cap for Lead Articles */
+.drop-cap::first-letter {
+  font-family: var(--font-serif), Georgia, serif;
+  float: left;
+  font-size: 3.5rem;
+  line-height: 0.85;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-bottom: 2px;
+  font-weight: 900;
+  color: #111827;
+}
+
+/* Pulsing Red Dot for Live Breaking News */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(1.2); }
+}
+
+.live-indicator {
+  animation: livePulse 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Broadsheet Column Dividers */
+.broadsheet-rule-r {
+  border-right: 1px solid #e5e7eb;
+}
+
+.broadsheet-rule-b {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.broadsheet-rule-t {
+  border-top: 1px solid #e5e7eb;
+}
